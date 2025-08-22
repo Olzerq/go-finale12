@@ -19,11 +19,14 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: '1.23'
+
+      - name: Build
+        run: go build -v ./...
       - name: modTidy
         run: go mod tidy
 
       - name: tests
-        run: go test ./..
+        run: go test ./...
 
   docker:
     name: Push Docker image to Docker Hub
